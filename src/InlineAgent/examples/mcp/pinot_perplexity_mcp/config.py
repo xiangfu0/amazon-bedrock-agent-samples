@@ -49,9 +49,3 @@ pinot_mcp_params = StdioServerParameters(
         "BEDROCK_LOG_GROUP_NAME": config.BEDROCK_LOG_GROUP_NAME,
     },
 )
-
-perplexity_server_params = StdioServerParameters(
-    command="docker",
-    args=["run", "-i", "--rm", "-e", "PERPLEXITY_API_KEY", "mcp/perplexity-ask"],
-    env={"PERPLEXITY_API_KEY": config.PERPLEXITY_API_KEY},
-)

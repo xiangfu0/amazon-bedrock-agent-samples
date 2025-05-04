@@ -2,18 +2,17 @@ from InlineAgent.tools import MCPStdio
 from InlineAgent.action_group import ActionGroup
 from InlineAgent.agent import InlineAgent
 
-from config import pinot_mcp_params, perplexity_server_params
+from config import pinot_mcp_params
 
 
 async def main():
 
     pinot_mcp_client = await MCPStdio.create(server_params=pinot_mcp_params)
-    perplexity_mcp_client = await MCPStdio.create(server_params=perplexity_server_params)
 
     try:
         pinot_mcp_group = ActionGroup(
             name="PinotMCPGroup",
-            mcp_clients=[pinot_mcp_client, perplexity_mcp_client],
+            mcp_clients=[pinot_mcp_client, ],
         )
         
         print("Trying to invoke pinot agent") 
@@ -34,7 +33,6 @@ async def main():
         )
     finally:
         # LIFO
-        await perplexity_mcp_client.cleanup()
         await pinot_mcp_client.cleanup()
 
 

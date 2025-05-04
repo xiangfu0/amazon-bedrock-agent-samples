@@ -3,11 +3,6 @@
 > [!IMPORTANT]
 > Never expose AWS keys publicly, use least privilege IAM roles, and rotate credentials every 90 days. Utilize AWS Secrets Manager, implement MFA, avoid hard-coding credentials, and continuously monitor access.
 
-<p align="center">
-  <a href="https://hub.docker.com/r/mcp/perplexity-ask"><img src="https://img.shields.io/badge/Docker-perplexity_ask-blue" /></a>
-  <a href="https://github.com/jsonallen/perplexity-mcp"><img src="https://img.shields.io/badge/Github-perplexity_mcp-blue" /></a>
-</p>
-
 1. Follow setup instructions [here](../../../README.md#getting-started)
 2. Create .env file with [.env.example](./.env.example)
 3. Setup `pinot-mcp-server` MCP server
@@ -24,9 +19,7 @@ docker build -t mcp-pinot-server .
 
 ```
 Connected to server with tools:['read-query', 'list-tables', 'table-details', 'segment-list', 'index-column-details', 'segment-metadata-details', 'tableconfig-schema-details']
-Perplexity MCP Server running on stdio with Ask, Research, and Reason tools
 
-Connected to server with tools:['perplexity_ask', 'perplexity_research', 'perplexity_reason']
 Trying to invoke pinot agent
 SessionId: 247f11ba-20e4-489c-bafb-1b0e7d8560e5
 2025-05-04 11:57:36,898 - botocore.credentials - INFO - Found credentials in shared credentials file: ~/.aws/credentials
